@@ -11,6 +11,10 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
+/**
+ * @author Modenov D.A.
+ */
+
 @XmlRootElement(name ="store")
 @Getter
 @ToString
@@ -19,13 +23,20 @@ import java.util.List;
 @NoArgsConstructor
 public class StoreXML {
 
-    String storeName;
+    private String storeName;
 
-    List<ShelfXML> shelves;
+    private Long totalProducts;
+
+    private List<ShelfXML> shelves;
 
     @XmlAttribute(name = "name")
     public void setStoreName(String storeName) {
         this.storeName = storeName;
+    }
+
+    @XmlElement(name = "totalProducts")
+    public void setTotalProducts(Long totalProducts) {
+        this.totalProducts = totalProducts;
     }
 
     @XmlElement(name = "shelves")

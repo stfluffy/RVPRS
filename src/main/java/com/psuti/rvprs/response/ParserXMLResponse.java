@@ -3,6 +3,9 @@ package com.psuti.rvprs.response;
 import java.io.ByteArrayInputStream;
 import java.util.Objects;
 
+/**
+ * @author Modenov D.A.
+ */
 
 public class ParserXMLResponse {
 

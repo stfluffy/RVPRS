@@ -1,10 +1,13 @@
 package com.psuti.rvprs.service.impl;
 
+import com.psuti.rvprs.model.ProductXML;
 import com.psuti.rvprs.model.StoreXML;
 import com.psuti.rvprs.response.ParserXMLResponse;
+import com.psuti.rvprs.response.ParserXMLValidationResponse;
 import com.psuti.rvprs.service.ParserXml;
 import com.psuti.rvprs.service.UploadFile;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -17,8 +20,13 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.Objects;
 
+/**
+ * @author Modenov D.A.
+ */
+
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class ParserXmlImpl implements ParserXml {
 
     private final JAXBContext context;
@@ -26,7 +34,7 @@ public class ParserXmlImpl implements ParserXml {
     private final UploadFile uploadFile;
 
     @Override
-    public ParserXMLResponse validateXmlFile(MultipartFile file){
+    public ParserXMLResponse validateXmlFile(MultipartFile file) {
 
         ByteArrayInputStream upload = uploadFile.upload(file);
 
@@ -56,7 +64,29 @@ public class ParserXmlImpl implements ParserXml {
     }
 
     private StoreXML validate(StoreXML storeXML) {
-        //todo написать валидацию
+        if (Objects.isNull(storeXML)) {
+            return null;
+        }
+
+        if (Objects.isNull(storeXML.getShelves()) || storeXML.getShelves().isEmpty()) {
+            storeXML.setTotalProducts(0L);
+            return storeXML;
+        }
+
+        long count = storeXML.getShelves().stream()
+                .mapToLong(shelf -> shelf.getProducts().stream()
+                        .filter(Objects::nonNull)
+                        .mapToLong(p -> {
+                            if (p.getQuantity() != null) {
+                                return p.getQuantity();
+                            }
+                            return 0;
+                        })
+                        .sum()).sum();
+
+        if (Objects.isNull(storeXML.getTotalProducts()) || count != storeXML.getTotalProducts()) {
+            storeXML.setTotalProducts(count);
+        }
 
         return storeXML;
     }

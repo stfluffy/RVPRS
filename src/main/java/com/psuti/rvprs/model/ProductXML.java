@@ -9,6 +9,10 @@ import lombok.ToString;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 
+/**
+ * @author Modenov D.A.
+ */
+
 @Getter
 @ToString
 @Builder
