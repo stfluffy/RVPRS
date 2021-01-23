@@ -4,19 +4,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- * @author Modenov D.A.
- */
-
 @Controller
-@RequestMapping("/")
-public class MainController {
+@RequestMapping("/labs/second")
+public class ProductController {
 
     @GetMapping
-    public String index() {
+    public String getPage() {
 
-        return "main";
+        return "products";
     }
-
-
 }

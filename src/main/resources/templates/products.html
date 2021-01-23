@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My labs</title>
+
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"
+    ></script>
+
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+            integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
+            crossorigin="anonymous"
+    ></script>
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+            integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+            crossorigin="anonymous"
+    />
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/table.min.css"
+            integrity="sha512-NtvxKmBWfr6sEZ3y/qV4DTXPEXpP/VZZV5BEaCFxUukf7/cyktgYpfsxs2ERvisbDXfnLJfswd2DYEj0h+qAFA=="
+            crossorigin="anonymous"
+    />
+
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/progress.min.js"
+            integrity="sha512-GBfu+i9kUg9WB2SXX3iYlIERWQCV5CfIy7C4SLyhGmd8Jn4KvuNy9gYECtpinpGRZhm86dmGTx84jZ5pjS2pHg=="
+            crossorigin="anonymous"
+    ></script>
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/modal.min.css"
+            integrity="sha512-CPLGe+O/BzgzHJKpdBXUuewmlxhlEfQ00zuYg1vcGCjOo88mqMeO1qa8q397ifxm18D12Go8OF7A42CjOKEl/g=="
+            crossorigin="anonymous"
+    />
+
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/modal.min.js"
+            integrity="sha512-aAW/TaSuYfyjTcMsaYP67Dwe0vI5d7ej9X7NJBPkhafB+D5kx57flRNo8+tOXWA0Gcq0MBmhPatrvn1YwvH9gQ=="
+            crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="/styles/main.css">
+
+    <script src="/js/main.js"></script>
+
+    <script src="/js/ui.js"></script>
+
+    <script src="/js/api.js"></script>
+
+    <script src="/js/search.js"></script>
+</head>
+<body>
+
+<div class="ui inverted segment">
+    <div class="ui inverted secondary pointing menu">
+        <a class="item" href="/">
+            Home
+        </a>
+        <a class="item" href="/labs/first">
+            Parse XML
+        </a>
+        <a class="active item" href="/labs/second" >
+            Web Products
+        </a>
+    </div>
+</div>
+
+<div class="ui secondary menu inverted">
+    <div class="item">
+        <div class="ui icon input inverted transparent">
+            <input type="text" placeholder="Search by name" id="searchInput">
+            <i class="search link icon"></i>
+        </div>
+    </div>
+
+    <div class="right menu">
+        <a class="item create-btn">
+            Create +
+        </a>
+    </div>
+</div>
+
+<table class="ui selectable inverted table" id="items-list">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Shelf</th>
+        <th class="right aligned">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<template id="productrow">
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="right aligned">
+            <button class="ui inverted icon button edit-btn">
+                <i class="edit icon"></i>
+            </button>
+            <button class="ui inverted icon button delete-btn">
+                <i class="trash icon"></i>
+            </button>
+        </td>
+    </tr>
+</template>
+
+<template id="delete-modal-tpl">
+    <div class="ui basic modal" id="delete-modal">
+        <div class="ui icon header">
+            <i class="trash alternate icon"></i>
+            Delete Entity
+        </div>
+        <div class="content">
+            <p>Are u sure in deletion of this entity?</p>
+        </div>
+        <div class="actions">
+            <div class="ui red basic cancel inverted button">
+                <i class="remove icon"></i>
+                No
+            </div>
+            <div class="ui red ok inverted button">
+                <i class="checkmark icon"></i>
+                Yes
+            </div>
+        </div>
+    </div>
+</template>
+
+<template id="create-edit-modal-tpl">
+    <form class="ui modal form" id="create-edit-modal">
+        <i class="close icon"></i>
+        <div class="header">
+            Edit Entity
+        </div>
+        <div class="content">
+            <div class="field">
+                <label>Name</label>
+                <input type="text" name="name" required>
+            </div>
+
+            <div class="two fields">
+                <div class="field">
+                    <label>Price</label>
+                    <div class="ui fluid icon input">
+                        <input type="number" name="price" min="0" step="1" required>
+                        <i class="ruble sign icon"></i>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Quantity</label>
+                    <input type="number" min="1" step="1" name="quantity" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Shelf</label>
+                <input type="number" name="shelf">
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                Cancel
+            </div>
+            <div class="ui positive right labeled icon button">
+                Save
+                <i class="checkmark icon"></i>
+            </div>
+        </div>
+    </form>
+</template>
+
+<div id="main-loader" class="main-loader">
+    <div class="ui active dimmer">
+        <div class="ui massive text loader"></div>
+    </div>
+</div>
+</body>
+</html>
