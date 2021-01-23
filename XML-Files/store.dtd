@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+        <!ELEMENT store (shelves*, totalProduct?)>
+        <!ATTLIST store
+                name CDATA
+                >
+
+        <!ELEMENT totalProduct (#PCDATA)?>
+
+        <!ELEMENT shelves (product*)>
+        <!ATTLIST shelves
+                id CDATA #REQUIRED
+                name CDATA #REQUIRED
+                >
+
+        <!ELEMENT product (name?, price?, quantity?)>
+        <!ATTLIST products
+                id CDATA #REQUIRED
+                >
+
+        <!ELEMENT name (#PCDATA)?>
+
+        <!ELEMENT price (#PCDATA)?>
+
+        <!ELEMENT quantity (#PCDATA)?>

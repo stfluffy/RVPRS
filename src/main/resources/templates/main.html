@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My labs</title>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"
+    ></script>
+
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"
+            integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw=="
+            crossorigin="anonymous"
+    ></script>
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+            integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+            crossorigin="anonymous"
+    />
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/table.min.css"
+            integrity="sha512-NtvxKmBWfr6sEZ3y/qV4DTXPEXpP/VZZV5BEaCFxUukf7/cyktgYpfsxs2ERvisbDXfnLJfswd2DYEj0h+qAFA=="
+            crossorigin="anonymous"
+    />
+
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/progress.min.js"
+            integrity="sha512-GBfu+i9kUg9WB2SXX3iYlIERWQCV5CfIy7C4SLyhGmd8Jn4KvuNy9gYECtpinpGRZhm86dmGTx84jZ5pjS2pHg=="
+            crossorigin="anonymous"
+    ></script>
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/modal.min.css"
+            integrity="sha512-CPLGe+O/BzgzHJKpdBXUuewmlxhlEfQ00zuYg1vcGCjOo88mqMeO1qa8q397ifxm18D12Go8OF7A42CjOKEl/g=="
+            crossorigin="anonymous"
+    />
+
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/modal.min.js"
+            integrity="sha512-aAW/TaSuYfyjTcMsaYP67Dwe0vI5d7ej9X7NJBPkhafB+D5kx57flRNo8+tOXWA0Gcq0MBmhPatrvn1YwvH9gQ=="
+            crossorigin="anonymous"
+    ></script>
+
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body>
+<div class="ui inverted segment">
+    <div class="ui inverted secondary pointing menu">
+        <a class="active item" th:href="@{/}">
+            Home
+        </a>
+        <a class="item" th:href="@{/labs/first}">
+            Parse XML
+        </a>
+        <a class="item" th:href="@{/labs/second}" >
+            Web Products
+        </a>
+    </div>
+</div>
+
+</body>
+</html>

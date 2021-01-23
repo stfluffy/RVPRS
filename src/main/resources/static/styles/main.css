@@ -1,0 +1,17 @@
+body, html {
+    background: #232323;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+    padding: 2px 16px 16px 16px;
+}
+
+.main-loader {
+    display: none;
+}
