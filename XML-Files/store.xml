@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE store SYSTEM "store.dtd">
+<store>
+    <shelves id="4" name="test">
+        <product>
+            <name>Тут продукт</name>
+            <price>346</price>
+            <quantity>45</quantity>
+        </product>
+        <product>
+            <name>И тут продукт</name>
+            <price>346</price>
+            <quantity>45</quantity>
+        </product>
+        <product>
+            <name>А вот тут продукт</name>
+            <price>345</price>
+            <quantity>377</quantity>
+        </product>
+    </shelves>
+    <shelves id="3" name="тест2">
+         <product>
+             <name>И здесь продукт</name>
+             <price>3425</price>
+             <quantity>65</quantity>
+         </product>
+    </shelves>
+    <totalProduct>5</totalProduct>
+</store>
