@@ -1,5 +1,4 @@
 function callDeleteItem(data) {
-    // making an entity of a template
     const fragmentClone = $('#delete-modal-tpl')[0].content.cloneNode(true);
 
     document.body.appendChild(fragmentClone);
@@ -19,7 +18,6 @@ function callDeleteItem(data) {
 }
 
 function createEditItem(data) {
-    // making an entity of a template
     const fragmentClone = $('#create-edit-modal-tpl')[0].content.cloneNode(true);
 
     document.body.appendChild(fragmentClone);
@@ -50,7 +48,6 @@ function createEditItem(data) {
 
 function loadList() {
     return getList().then(response => response.json()).then(list => {
-        // sharing data
         $('#items-list').data('list', list);
 
         renderTable(list);
