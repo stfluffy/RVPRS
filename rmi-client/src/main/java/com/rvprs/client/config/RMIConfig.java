@@ -1,6 +1,6 @@
 package com.rvprs.client.config;
 
-import com.rvprs.client.ProductServiceRMI;
+import com.rvprs.client.rmiinterface.ProductServiceRMI;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.remoting.rmi.RmiProxyFactoryBean;

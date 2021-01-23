@@ -1,4 +1,4 @@
-package com.rvprs.client;
+package com.rvprs.client.rmiinterface;
 
 public interface ProductServiceRMI {
 
