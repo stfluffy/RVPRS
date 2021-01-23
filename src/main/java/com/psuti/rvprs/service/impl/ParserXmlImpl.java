@@ -74,6 +74,7 @@ public class ParserXmlImpl implements ParserXml {
         }
 
         long count = storeXML.getShelves().stream()
+                .filter(shelf -> Objects.nonNull(shelf.getProducts()))
                 .mapToLong(shelf -> shelf.getProducts().stream()
                         .filter(Objects::nonNull)
                         .mapToLong(p -> {
